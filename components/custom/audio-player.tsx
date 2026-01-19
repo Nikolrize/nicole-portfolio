@@ -4,24 +4,7 @@ import { Button } from "../ui/8bit/button";
 import { Card, CardContent } from "../ui/8bit/card";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/8bit/avatar";
 import { Pause, Play, SkipBack, SkipForward } from "lucide-react";
-
-const playlist = [
-  {
-    src: "/audio/keshi - beside you (Lyric Video).mp3",
-    cover: "/homepage/keshi - beside you.jpg",
-    title: "Keshi - Beside You",
-  },
-  {
-    src: "/audio/Mr. Broken Heart.mp3",
-    cover: "/homepage/mr broken heart.jpg",
-    title: "YOUYA - Mr Broken Heart",
-  },
-  {
-    src: "/audio/the cutest pair.mp3",
-    cover: "/homepage/the cutest pair.jpg",
-    title: "Regina Song - The Cutest Pair",
-  },
-];
+import { playlist } from "@/lib/data";
 
 export default function AudioPlayer8bit() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -163,13 +146,17 @@ export default function AudioPlayer8bit() {
         {/* Controls */}
         <div className="flex gap-2">
           <Button onClick={prevTrack}>
-            <SkipBack />
+            <SkipBack strokeWidth={5} />
           </Button>
           <Button onClick={togglePlay}>
-            {isPlaying ? <Pause /> : <Play />}
+            {isPlaying ? (
+              <Pause fill="white" strokeWidth={5} />
+            ) : (
+              <Play strokeWidth={5} />
+            )}
           </Button>
           <Button onClick={nextTrack}>
-            <SkipForward />
+            <SkipForward strokeWidth={5} />
           </Button>
         </div>
       </CardContent>
