@@ -11,16 +11,7 @@ import {
   Card,
   CardContent,
   CardFooter,
-  CardTitle,
 } from "@/components/ui/8bit/card";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/8bit/navigation-menu";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { listofContents } from "@/lib/data";
@@ -36,35 +27,6 @@ export default function Home() {
         priority
         className="fixed -z-10 object-cover"
       />
-
-      <div className="fixed top-4 z-10">
-        <Card className="p-1">
-          <CardContent>
-            <NavigationMenu>
-              <NavigationMenuList className="gap-2">
-                <NavigationMenuItem>
-                  <NavigationMenuLink>Home</NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>About Me</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <NavigationMenuLink>Introduction</NavigationMenuLink>
-                    <NavigationMenuLink>Education</NavigationMenuLink>
-                    <NavigationMenuLink>Work Experience</NavigationMenuLink>
-                    <NavigationMenuLink>Skills</NavigationMenuLink>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink>Projects</NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink>Contact Me</NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </CardContent>
-        </Card>
-      </div>
 
       <div className="flex flex-col overflow-y-scroll w-full h-full snap-mandatory snap-y scroll-smooth">
         <section
