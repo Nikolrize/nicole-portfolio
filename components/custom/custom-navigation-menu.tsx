@@ -17,22 +17,34 @@ export default function CustomNavigationMenu() {
             <NavigationMenu>
               <NavigationMenuList className="gap-2">
                 <NavigationMenuItem>
-                  <NavigationMenuLink>Home</NavigationMenuLink>
+                  <NavigationMenuLink href="/">Home</NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>About Me</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <NavigationMenuLink>Introduction</NavigationMenuLink>
-                    <NavigationMenuLink>Education</NavigationMenuLink>
-                    <NavigationMenuLink>Work Experience</NavigationMenuLink>
-                    <NavigationMenuLink>Skills</NavigationMenuLink>
+                    <NavigationMenuLink href="/about-me/#introduction">
+                      Introduction
+                    </NavigationMenuLink>
+                    <NavigationMenuLink href="/about-me/#education">
+                      Education
+                    </NavigationMenuLink>
+                    <NavigationMenuLink href="/about-me/#work">
+                      Work Experience
+                    </NavigationMenuLink>
+                    <NavigationMenuLink href="/about-me/#skills">
+                      Skills
+                    </NavigationMenuLink>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink>Projects</NavigationMenuLink>
+                  <NavigationMenuLink href="/projects">
+                    Projects
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink>Contact Me</NavigationMenuLink>
+                  <NavigationMenuLink href="/contact-me">
+                    Contact Me
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>

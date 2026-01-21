@@ -22,15 +22,18 @@ export const listofContents = [
     description:
       "Get to know about my education, work experiences, skill set and me!",
     image: "homepage/bg.gif",
+    link: "/about-me",
   },
   {
     name: "Projects",
     description: "The collection of projects I have been involved in.",
     image: "homepage/bg.gif",
+    link: "/projects",
   },
   {
     name: "Contact Me",
     description: "Want to learn more about me? Get in contact with me now!",
     image: "homepage/bg.gif",
+    link: "/contact-me",
   },
 ];

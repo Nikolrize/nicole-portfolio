@@ -7,16 +7,12 @@ import {
   AvatarImage,
 } from "@/components/ui/8bit/avatar";
 import { Button } from "@/components/ui/8bit/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/8bit/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/8bit/card";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { listofContents } from "@/lib/data";
 import Image from "next/image";
-
+import Link from "next/link";
 export default function Home() {
   return (
     <div className="relative flex flex-col h-screen w-full items-center justify-center font-retro">
@@ -70,7 +66,13 @@ export default function Home() {
                   <CardFooter className="flex flex-col gap-4 items-start">
                     <h2>{content.name}</h2>
                     <h3 className="text-sm">{content.description}</h3>
-                    <Button>View</Button>
+                    <Link
+                      href={content.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button>View</Button>
+                    </Link>
                   </CardFooter>
                 </Card>
               </BlurFade>
