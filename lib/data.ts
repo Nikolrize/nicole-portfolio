@@ -37,3 +37,31 @@ export const listofContents = [
     link: "/contact-me",
   },
 ];
+
+export const aboutMeItems = [
+  {
+    title: "Cosplay",
+    image: "/about-me/me5.jpeg",
+    className: "absolute top-[14%] right-[6%] rotate-[5deg]",
+  },
+  {
+    title: "Sweet",
+    image: "/about-me/me4.jpeg",
+    className: "absolute top-[10%] right-[20%] -rotate-[8deg]",
+  },
+  {
+    title: "Aquarium",
+    image: "/about-me/me3.jpeg",
+    className: "absolute bottom-[10%] right-[9%] rotate-[8deg]",
+  },
+  {
+    title: "Themepark",
+    image: "/about-me/me2.jpeg",
+    className: "absolute bottom-[15%] right-[18%] -rotate-[5deg]",
+  },
+  {
+    title: "Formal",
+    image: "/about-me/me.jpeg",
+    className: "absolute top-[25%] right-[13%]",
+  },
+];
