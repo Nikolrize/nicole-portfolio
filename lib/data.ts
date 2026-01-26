@@ -16,29 +16,7 @@ export const playlist = [
   },
 ];
 
-export const listofContents = [
-  {
-    name: "About Me",
-    description:
-      "Get to know about my education, work experiences, skill set and me!",
-    image: "homepage/bg.gif",
-    link: "/about-me",
-  },
-  {
-    name: "Projects",
-    description: "The collection of projects I have been involved in.",
-    image: "homepage/bg.gif",
-    link: "/projects",
-  },
-  {
-    name: "Contact Me",
-    description: "Want to learn more about me? Get in contact with me now!",
-    image: "homepage/bg.gif",
-    link: "/contact-me",
-  },
-];
-
-export const aboutMeItems = [
+export const introductionItems = [
   {
     title: "Cosplay",
     image: "/about-me/me5.jpeg",

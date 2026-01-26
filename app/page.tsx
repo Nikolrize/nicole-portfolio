@@ -1,44 +1,40 @@
 import AudioPlayer8bit from "@/components/custom/audio-player";
 import MotionSlideLeft from "@/components/custom/motion-slide-left";
 import ScrollToSectionButton from "@/components/custom/scroll-to-section-button";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/8bit/avatar";
 import { Button } from "@/components/ui/8bit/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/8bit/card";
+import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
 import { BlurFade } from "@/components/ui/blur-fade";
+import {
+  DraggableCardBody,
+  DraggableCardContainer,
+} from "@/components/ui/draggable-card";
 import { TextAnimate } from "@/components/ui/text-animate";
-import { listofContents } from "@/lib/data";
-import Image from "next/image";
+import { introductionItems } from "@/lib/data";
 import Link from "next/link";
+
 export default function Home() {
   return (
-    <div className="relative flex flex-col h-screen w-full items-center justify-center font-retro">
-      <Image
-        src={"/homepage/bg.gif"}
-        alt="homepage-bg"
-        fill
-        priority
-        className="fixed -z-10 object-cover"
-      />
+    <div className="relative flex flex-col h-screen w-full items-center justify-center font-retro bg-white">
+      <AnimatedGridPattern maxOpacity={0.2} />
 
       <div className="flex flex-col overflow-y-scroll w-full h-full snap-mandatory snap-y scroll-smooth">
         <section
-          id="intro"
-          className="flex min-h-screen justify-center gap-20 items-center snap-start p-15"
+          id="home"
+          className="flex min-h-screen justify-between gap-15 items-center snap-start p-30"
         >
           <div className="flex flex-col gap-4">
-            <TextAnimate animation="slideLeft" className="text-4xl text-white">
-              Welcome to My Portfolio
+            <TextAnimate
+              animation="slideLeft"
+              className="text-4xl text-primary"
+            >
+              Welcome to Chor Yan's Portfolio
             </TextAnimate>
             <TextAnimate animation="slideLeft" className="text-2xl">
               where I share my projects, experiences and me!
             </TextAnimate>
 
             <MotionSlideLeft>
-              <ScrollToSectionButton section="contents">
+              <ScrollToSectionButton section="introduction">
                 Get started
               </ScrollToSectionButton>
             </MotionSlideLeft>
@@ -48,36 +44,64 @@ export default function Home() {
           </BlurFade>
         </section>
 
-        <section
-          id="contents"
-          className="flex flex-col min-h-screen justify-center items-center snap-start gap-10 p-15"
-        >
-          <h1 className="text-white text-4xl">List of Contents</h1>
-          <div className="grid grid-cols-3 gap-15">
-            {listofContents.map((content, index) => (
-              <BlurFade key={content.name} delay={index * 0.15}>
-                <Card key={content.name} className="h-full max-w-100">
-                  <CardContent className="flex flex-col items-center">
-                    <Avatar variant="retro" className="size-50 w-full">
-                      <AvatarImage src={content.image} alt={content.name} />
-                      <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                  </CardContent>
-                  <CardFooter className="flex flex-col gap-4 items-start">
-                    <h2>{content.name}</h2>
-                    <h3 className="text-sm">{content.description}</h3>
-                    <Link
-                      href={content.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button>View</Button>
-                    </Link>
-                  </CardFooter>
-                </Card>
+        <section id="introduction" className="snap-start">
+          <DraggableCardContainer className="relative flex min-h-screen w-full items-center overflow-clip">
+            <div className="flex flex-col gap-8 max-w-[60%] p-30">
+              <div className="flex flex-col gap-4">
+                <TextAnimate
+                  animation="scaleUp"
+                  className="text-4xl text-primary"
+                >
+                  Hi, I'm Chor Yan!
+                </TextAnimate>
+                <TextAnimate animation="slideLeft" className="text-2xl">
+                  A second-year degree student in Computer Science
+                </TextAnimate>
+              </div>
+
+              <TextAnimate
+                animation="slideLeft"
+                className="text-lg text-secondary-foreground"
+              >
+                Passionate about software engineering, networking and web
+                development. Possess hands-on experience in full-stack
+                development in industrial and academic projects. Eager to
+                contribute to team success through dedication, collaboration,
+                and a continuous drive to learn.
+              </TextAnimate>
+
+              <MotionSlideLeft>
+                <Link
+                  href="/about-me/CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button>View Resume</Button>
+                </Link>
+              </MotionSlideLeft>
+            </div>
+
+            {introductionItems.map((item) => (
+              <BlurFade key={item.title} className={item.className}>
+                <DraggableCardBody key={item.title} className={item.className}>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="pointer-events-none relative z-10 h-80 w-80 object-cover"
+                  />
+                  <h3 className="mt-4 text-center text-xl">{item.title}</h3>
+                </DraggableCardBody>
               </BlurFade>
             ))}
-          </div>
+          </DraggableCardContainer>
+        </section>
+
+        <section
+          id="education"
+          className="flex flex-col min-h-screen justify-center items-center snap-start gap-10 p-30"
+        >
+          <h1 className="text-primary text-4xl">Education</h1>
+          <div className="grid grid-cols-3 gap-15"></div>
         </section>
       </div>
     </div>

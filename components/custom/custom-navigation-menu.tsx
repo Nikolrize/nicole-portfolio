@@ -22,27 +22,27 @@ export default function CustomNavigationMenu() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>About Me</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <NavigationMenuLink href="/about-me/#introduction">
+                    <NavigationMenuLink href="#introduction">
                       Introduction
                     </NavigationMenuLink>
-                    <NavigationMenuLink href="/about-me/#education">
+                    <NavigationMenuLink href="#education">
                       Education
                     </NavigationMenuLink>
-                    <NavigationMenuLink href="/about-me/#work">
+                    <NavigationMenuLink href="#work">
                       Work Experience
                     </NavigationMenuLink>
-                    <NavigationMenuLink href="/about-me/#skills">
+                    <NavigationMenuLink href="#skills">
                       Skills
                     </NavigationMenuLink>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href="/projects">
+                  <NavigationMenuLink href="#projects">
                     Projects
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href="/contact-me">
+                  <NavigationMenuLink href="#contact-me">
                     Contact Me
                   </NavigationMenuLink>
                 </NavigationMenuItem>
