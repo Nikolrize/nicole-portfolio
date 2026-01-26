@@ -146,17 +146,13 @@ export default function AudioPlayer8bit() {
         {/* Controls */}
         <div className="flex gap-2">
           <Button onClick={prevTrack}>
-            <SkipBack strokeWidth={5} />
+            <SkipBack strokeWidth={3} />
           </Button>
           <Button onClick={togglePlay}>
-            {isPlaying ? (
-              <Pause fill="white" strokeWidth={5} />
-            ) : (
-              <Play strokeWidth={5} />
-            )}
+            {isPlaying ? <Pause strokeWidth={3} /> : <Play strokeWidth={3} />}
           </Button>
           <Button onClick={nextTrack}>
-            <SkipForward strokeWidth={5} />
+            <SkipForward strokeWidth={3} />
           </Button>
         </div>
       </CardContent>
