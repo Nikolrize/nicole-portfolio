@@ -25,11 +25,8 @@ export default function CustomNavigationMenu() {
                     <NavigationMenuLink href="#introduction">
                       Introduction
                     </NavigationMenuLink>
-                    <NavigationMenuLink href="#education">
-                      Education
-                    </NavigationMenuLink>
-                    <NavigationMenuLink href="#work">
-                      Work Experience
+                    <NavigationMenuLink href="#experiences">
+                      Experiences
                     </NavigationMenuLink>
                     <NavigationMenuLink href="#skills">
                       Skills

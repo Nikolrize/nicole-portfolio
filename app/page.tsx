@@ -1,7 +1,14 @@
 import AudioPlayer8bit from "@/components/custom/audio-player";
+import { Timeline } from "@/components/custom/timeline";
 import MotionSlideLeft from "@/components/custom/motion-slide-left";
 import ScrollToSectionButton from "@/components/custom/scroll-to-section-button";
 import { Button } from "@/components/ui/8bit/button";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/8bit/tabs";
 import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
 import { BlurFade } from "@/components/ui/blur-fade";
 import {
@@ -27,10 +34,10 @@ export default function Home() {
               animation="slideLeft"
               className="text-4xl text-primary"
             >
-              Welcome to Chor Yan's Portfolio
+              Welcome to My Portfolio
             </TextAnimate>
             <TextAnimate animation="slideLeft" className="text-2xl">
-              where I share my projects, experiences and me!
+              Where I share my projects, experiences and me!
             </TextAnimate>
 
             <MotionSlideLeft>
@@ -97,11 +104,25 @@ export default function Home() {
         </section>
 
         <section
-          id="education"
-          className="flex flex-col min-h-screen justify-center items-center snap-start gap-10 p-30"
+          id="experiences"
+          className="flex flex-col min-h-screen snap-start p-30 justify-center"
         >
-          <h1 className="text-primary text-4xl">Education</h1>
-          <div className="grid grid-cols-3 gap-15"></div>
+          <Tabs defaultValue="education" className="gap-12">
+            <div className="flex flex-col gap-8">
+              <h1 className="text-primary text-4xl">Experiences</h1>
+              <TabsList>
+                <TabsTrigger value="education">Education</TabsTrigger>
+                <TabsTrigger value="work">Work</TabsTrigger>
+              </TabsList>
+            </div>
+
+            <TabsContent value="education">
+              <Timeline type="education" />
+            </TabsContent>
+            <TabsContent value="work">
+              <Timeline type="work" />
+            </TabsContent>
+          </Tabs>
         </section>
       </div>
     </div>
