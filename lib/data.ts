@@ -43,3 +43,37 @@ export const introductionItems = [
     className: "absolute top-[25%] right-[13%]",
   },
 ];
+
+export const skillsItems = [
+  {
+    title: "Programming Languages",
+    skills: ["Python", "Java", "JavaScript", "TypeScript", "C", "C++", "PHP"],
+  },
+  {
+    title: "Frontend Development",
+    skills: [
+      "HTML",
+      "CSS",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Bootstrap",
+      "Shadcn",
+      "Ant Design",
+      "i18n",
+      "Recoil",
+    ],
+  },
+  {
+    title: "Backend Development",
+    skills: ["Node.js", "RESTful APIs", "GraphQL"],
+  },
+  {
+    title: "Databases",
+    skills: ["MySQL", "PostgreSQL"],
+  },
+  {
+    title: "Others",
+    skills: ["Git", "GitHub", "Figma", "Arduino", "Cisco Networking"],
+  },
+];

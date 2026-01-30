@@ -16,8 +16,16 @@ import {
   DraggableCardContainer,
 } from "@/components/ui/draggable-card";
 import { TextAnimate } from "@/components/ui/text-animate";
-import { introductionItems } from "@/lib/data";
+import { introductionItems, skillsItems } from "@/lib/data";
 import Link from "next/link";
+import { Card, CardContent, CardHeader } from "@/components/ui/8bit/card";
+import { Badge } from "@/components/ui/8bit/badge";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/8bit/accordion";
 
 export default function Home() {
   return (
@@ -123,6 +131,37 @@ export default function Home() {
               <Timeline type="work" />
             </TabsContent>
           </Tabs>
+        </section>
+
+        <section
+          id="skills"
+          className="flex flex-col min-h-screen snap-start p-30 items-center justify-center gap-12"
+        >
+          <h1 className="text-primary text-4xl">Skills</h1>
+
+          <div className="grid grid-cols-3 gap-6 w-full">
+            {skillsItems.map((item) => (
+              <Accordion key={item.title} type="multiple">
+                <Card className="py-0">
+                  <AccordionItem value={item.title}>
+                    <AccordionTrigger className="pb-2 pr-6">
+                      <CardHeader>
+                        <h2>{item.title}</h2>
+                      </CardHeader>
+                    </AccordionTrigger>
+
+                    <AccordionContent>
+                      <CardContent className="flex flex-wrap gap-4">
+                        {item.skills.map((skill) => (
+                          <Badge key={skill}>{skill}</Badge>
+                        ))}
+                      </CardContent>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Card>
+              </Accordion>
+            ))}
+          </div>
         </section>
       </div>
     </div>
