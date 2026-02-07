@@ -18,7 +18,12 @@ import {
 import { TextAnimate } from "@/components/ui/text-animate";
 import { academicProjects, introductionItems, skillsItems } from "@/lib/data";
 import Link from "next/link";
-import { Card, CardContent, CardHeader } from "@/components/ui/8bit/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/8bit/card";
 import { Badge } from "@/components/ui/8bit/badge";
 import {
   Accordion,
@@ -41,6 +46,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/8bit/dialog";
+import { Github, Linkedin, Mail, Phone, Send } from "lucide-react";
+import { Input } from "@/components/ui/8bit/input";
+import { Textarea } from "@/components/ui/8bit/textarea";
 
 export default function Home() {
   return (
@@ -204,7 +212,10 @@ export default function Home() {
                     <CarouselItem key={item.title} className="basis-1/3">
                       <Dialog>
                         <DialogTrigger asChild>
-                          <Card key={item.title} className="h-full">
+                          <Card
+                            key={item.title}
+                            className="h-full cursor-pointer"
+                          >
                             <CardContent className="flex flex-col gap-6">
                               <h2>{item.title}</h2>
                               <h3 className="text-gray-500 text-sm">
@@ -270,6 +281,79 @@ export default function Home() {
               <span>Coming soon!</span>
             </TabsContent>
           </Tabs>
+        </section>
+
+        <section
+          id="contact-me"
+          className="flex min-h-screen snap-start p-30 items-center justify-center gap-20"
+        >
+          <div className="flex flex-col gap-8">
+            <h1 className="text-primary text-4xl">Contact Me</h1>
+            <Card className="h-min">
+              <CardContent className="flex flex-col gap-4">
+                <span className="flex gap-4">
+                  <Phone /> +60133388696
+                </span>
+                <span className="flex gap-4">
+                  <Mail /> nicolechen119@gmail.com
+                </span>
+
+                <div className="flex gap-2">
+                  <Link
+                    href={"https://www.linkedin.com/in/chenchoryan"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-10 h-10 rounded-full border border-border
+               transition-colors bg-primary text-primary-foreground hover:bg-white hover:text-foreground p-2"
+                  >
+                    <Linkedin />
+                  </Link>
+                  <Link
+                    href={"https://www.github.com/Nikolrize"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-10 h-10 rounded-full border border-border
+               transition-colors bg-primary text-primary-foreground hover:bg-white hover:text-foreground p-2"
+                  >
+                    <Github />
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          <form>
+            <Card className="w-[35vw]">
+              <CardHeader>
+                <h1>Get in touch with me!</h1>
+              </CardHeader>
+              <CardContent className="flex flex-col gap-4 text-sm">
+                <div className="flex flex-col gap-2">
+                  <span className="text-secondary-foreground">Your Name:</span>
+                  <Input />
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <span className="text-secondary-foreground">Your Email:</span>
+                  <Input />
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <span className="text-secondary-foreground">Subject:</span>
+                  <Input />
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <span className="text-secondary-foreground">Content:</span>
+                  <Textarea />
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button>
+                  Send <Send />
+                </Button>
+              </CardFooter>
+            </Card>
+          </form>
         </section>
       </div>
     </div>
