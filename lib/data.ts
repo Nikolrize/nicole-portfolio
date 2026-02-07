@@ -77,3 +77,69 @@ export const skillsItems = [
     skills: ["Git", "GitHub", "Figma", "Arduino", "Cisco Networking"],
   },
 ];
+
+export const academicProjects = [
+  {
+    title: "MyTour",
+    description: "AI-powered trip planner for tourists in Malaysia.",
+    techstack: [
+      "Node.js",
+      "Next.js",
+      "React",
+      "Google Gemini API",
+      "PostgreSQL",
+    ],
+    features: [
+      "Generates customized itineraries",
+      "Interactive map with routing",
+      "Community page for trip plan sharing",
+    ],
+    contributers: [
+      "Chen Chor Yan",
+      "Dylan Ho Wei Jun",
+      "Alexander Leslie Cheng",
+      "Kylan Shane Sedrick",
+      "Narish Kumar Dey",
+    ],
+  },
+  {
+    title: "Inoit - Your next school in pocket",
+    description: "Web app for interactive assessments and progress tracking.",
+    techstack: ["JavaScript", "HTML", "PHP", "CSS", "MySQL"],
+    features: [
+      "Teacher & student roles with quiz features",
+      "Custom GIFs, leaderboards, responsive UI",
+    ],
+    contributers: [
+      "Chen Chor Yan",
+      "Dylan Ho Wei Jun",
+      "Alexander Leslie Cheng",
+      "Pang Ee Tong",
+    ],
+  },
+  {
+    title: "Hostel Management Fees Payment System",
+    description: "Java application for managing hostel fee payments.",
+    techstack: ["Java"],
+    features: [
+      "Developed using an object-oriented approach.",
+      "Role-based access: manager, staff, resident",
+      "Secure login, account control, payment tracking",
+    ],
+    contributers: ["Chen Chor Yan", "Dylan Ho Wei Jun"],
+  },
+  {
+    title: "Automated Transaction System",
+    description: "Python-based system for managing business transactions",
+    techstack: ["Python", "JSON"],
+    features: [
+      "Role-based modules: customer, admin, inventory staff, super user",
+      "Order processing, payment, reports",
+    ],
+    contributers: [
+      "Chen Chor Yan",
+      "Dylan Ho Wei Jun",
+      "Alexander Leslie Cheng",
+    ],
+  },
+];

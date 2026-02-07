@@ -16,7 +16,7 @@ import {
   DraggableCardContainer,
 } from "@/components/ui/draggable-card";
 import { TextAnimate } from "@/components/ui/text-animate";
-import { introductionItems, skillsItems } from "@/lib/data";
+import { academicProjects, introductionItems, skillsItems } from "@/lib/data";
 import Link from "next/link";
 import { Card, CardContent, CardHeader } from "@/components/ui/8bit/card";
 import { Badge } from "@/components/ui/8bit/badge";
@@ -26,6 +26,21 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/8bit/accordion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/8bit/carousel";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/8bit/dialog";
 
 export default function Home() {
   return (
@@ -162,6 +177,99 @@ export default function Home() {
               </Accordion>
             ))}
           </div>
+        </section>
+
+        <section
+          id="projects"
+          className="flex flex-col min-h-screen snap-start p-30 items-center justify-center"
+        >
+          <Tabs defaultValue="academic" className="items-center gap-12">
+            <div className="flex flex-col gap-8">
+              <h1 className="text-primary text-4xl">Projects</h1>
+              <TabsList>
+                <TabsTrigger value="academic">Academic</TabsTrigger>
+                <TabsTrigger value="personal">Personal</TabsTrigger>
+              </TabsList>
+            </div>
+
+            <TabsContent value="academic">
+              <Carousel
+                opts={{
+                  align: "start",
+                }}
+                className="px-10"
+              >
+                <CarouselContent className="px-10 mr-10 gap-4">
+                  {academicProjects.map((item) => (
+                    <CarouselItem key={item.title} className="basis-1/3">
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Card key={item.title} className="h-full">
+                            <CardContent className="flex flex-col gap-6">
+                              <h2>{item.title}</h2>
+                              <h3 className="text-gray-500 text-sm">
+                                {item.description}
+                              </h3>
+                              <div className="flex flex-wrap gap-4">
+                                {item.techstack?.map((tech) => (
+                                  <Badge key={tech}>{tech}</Badge>
+                                ))}
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </DialogTrigger>
+                        <DialogContent className="gap-10">
+                          <DialogHeader>
+                            <DialogTitle className="text-primary font-normal">
+                              {item.title}
+                            </DialogTitle>
+                            <DialogDescription className="text-gray-500">
+                              {item.description}
+                            </DialogDescription>
+                          </DialogHeader>
+                          <div className="flex flex-col gap-2">
+                            <span className="text-sm text-primary uppercase">
+                              Contributers:
+                            </span>
+                            <span className="text-sm text-secondary-foreground">
+                              {item.contributers?.join(", ")}
+                            </span>
+                          </div>
+
+                          <div className="flex flex-col gap-2">
+                            <span className="text-sm text-primary uppercase">
+                              Tech stack:
+                            </span>
+                            <div className="flex flex-wrap gap-4">
+                              {item.techstack?.map((tech) => (
+                                <Badge key={tech}>{tech}</Badge>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div className="flex flex-col gap-2">
+                            <span className="text-sm text-primary uppercase">
+                              Features:
+                            </span>
+                            <ul className="list-disc list-inside space-y-1 text-sm text-secondary-foreground">
+                              {item.features?.map((feat) => (
+                                <li key={feat}>{feat}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            </TabsContent>
+            <TabsContent value="personal">
+              <span>Coming soon!</span>
+            </TabsContent>
+          </Tabs>
         </section>
       </div>
     </div>
