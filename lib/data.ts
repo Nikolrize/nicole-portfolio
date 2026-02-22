@@ -19,22 +19,22 @@ export const playlist = [
 export const introductionItems = [
   {
     title: "Cosplay",
-    image: "/about-me/me5.jpeg",
+    image: "/about-me/cosplay.jpeg",
     className: "absolute top-[14%] right-[6%] rotate-[5deg]",
   },
   {
-    title: "Sweet",
-    image: "/about-me/me4.jpeg",
+    title: "IOT",
+    image: "/about-me/iot.png",
     className: "absolute top-[10%] right-[20%] -rotate-[8deg]",
   },
   {
-    title: "Aquarium",
-    image: "/about-me/me3.jpeg",
+    title: "Entrepreneur",
+    image: "/about-me/entrepreneur.png",
     className: "absolute bottom-[10%] right-[9%] rotate-[8deg]",
   },
   {
-    title: "Themepark",
-    image: "/about-me/me2.jpeg",
+    title: "Diploma",
+    image: "/about-me/diploma.png",
     className: "absolute bottom-[15%] right-[18%] -rotate-[5deg]",
   },
   {
@@ -82,6 +82,7 @@ export const academicProjects = [
   {
     title: "MyTour",
     description: "AI-powered trip planner for tourists in Malaysia.",
+    image: "mytour",
     techstack: [
       "Node.js",
       "Next.js",
@@ -120,6 +121,7 @@ export const academicProjects = [
   {
     title: "Hostel Management Fees Payment System",
     description: "Java application for managing hostel fee payments.",
+    image: "oop",
     techstack: ["Java"],
     features: [
       "Developed using an object-oriented approach.",
@@ -131,6 +133,7 @@ export const academicProjects = [
   {
     title: "Automated Transaction System",
     description: "Python-based system for managing business transactions",
+    image: "pwp",
     techstack: ["Python", "JSON"],
     features: [
       "Role-based modules: customer, admin, inventory staff, super user",

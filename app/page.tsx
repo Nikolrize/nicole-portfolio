@@ -43,13 +43,15 @@ import {
 } from "@/components/ui/8bit/dialog";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import ContactForm from "@/components/custom/contact-form";
+// import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col h-screen w-full items-center justify-center font-retro bg-white">
+    <div className="relative flex flex-col h-screen w-full items-center justify-center font-retro bg-white overflow-hidden">
       <AnimatedGridPattern maxOpacity={0.2} />
 
       <div className="flex flex-col overflow-y-scroll w-full h-full snap-mandatory snap-y scroll-smooth">
+        {/* HOME */}
         <section
           id="home"
           className="flex min-h-screen justify-between gap-15 items-center snap-start p-30"
@@ -76,6 +78,7 @@ export default function Home() {
           </BlurFade>
         </section>
 
+        {/* INTRODUCTION */}
         <section id="introduction" className="snap-start">
           <DraggableCardContainer className="relative flex min-h-screen w-full items-center overflow-clip">
             <div className="flex flex-col gap-8 max-w-[60%] p-30">
@@ -128,70 +131,88 @@ export default function Home() {
           </DraggableCardContainer>
         </section>
 
+        {/* EXPERIENCES */}
         <section
           id="experiences"
           className="flex flex-col min-h-screen snap-start p-30 justify-center"
         >
           <Tabs defaultValue="education" className="gap-12">
             <div className="flex flex-col gap-8">
-              <h1 className="text-primary text-4xl">Experiences</h1>
-              <TabsList>
-                <TabsTrigger value="education">Education</TabsTrigger>
-                <TabsTrigger value="work">Work</TabsTrigger>
-              </TabsList>
+              <TextAnimate
+                animation="slideLeft"
+                className="text-primary text-4xl"
+              >
+                Experiences
+              </TextAnimate>
+              <BlurFade direction="left">
+                <TabsList>
+                  <TabsTrigger value="education">Education</TabsTrigger>
+                  <TabsTrigger value="work">Work</TabsTrigger>
+                </TabsList>
+              </BlurFade>
             </div>
 
-            <TabsContent value="education">
-              <Timeline type="education" />
-            </TabsContent>
-            <TabsContent value="work">
-              <Timeline type="work" />
-            </TabsContent>
+            <BlurFade direction="left">
+              <TabsContent value="education">
+                <Timeline type="education" />
+              </TabsContent>
+              <TabsContent value="work">
+                <Timeline type="work" />
+              </TabsContent>
+            </BlurFade>
           </Tabs>
         </section>
 
+        {/* SKILLS */}
         <section
           id="skills"
           className="flex flex-col min-h-screen snap-start p-30 items-center justify-center gap-12"
         >
-          <h1 className="text-primary text-4xl">Skills</h1>
+          <TextAnimate className="text-primary text-4xl">Skills</TextAnimate>
 
           <div className="grid grid-cols-3 gap-6 w-full">
-            {skillsItems.map((item) => (
+            {skillsItems.map((item, index) => (
               <Accordion key={item.title} type="multiple">
-                <Card className="py-0">
-                  <AccordionItem value={item.title}>
-                    <AccordionTrigger className="pb-2 pr-6">
-                      <CardHeader>
-                        <h2>{item.title}</h2>
-                      </CardHeader>
-                    </AccordionTrigger>
+                <BlurFade key={item.title} delay={index * 0.1}>
+                  <Card className="py-0">
+                    <AccordionItem value={item.title}>
+                      <AccordionTrigger className="pb-2 pr-6">
+                        <CardHeader>
+                          <h2>{item.title}</h2>
+                        </CardHeader>
+                      </AccordionTrigger>
 
-                    <AccordionContent>
-                      <CardContent className="flex flex-wrap gap-4">
-                        {item.skills.map((skill) => (
-                          <Badge key={skill}>{skill}</Badge>
-                        ))}
-                      </CardContent>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Card>
+                      <AccordionContent>
+                        <CardContent className="flex flex-wrap gap-4">
+                          {item.skills.map((skill) => (
+                            <Badge key={skill}>{skill}</Badge>
+                          ))}
+                        </CardContent>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Card>
+                </BlurFade>
               </Accordion>
             ))}
           </div>
         </section>
 
+        {/* PROJECTS */}
         <section
           id="projects"
           className="flex flex-col min-h-screen snap-start p-30 items-center justify-center"
         >
           <Tabs defaultValue="academic" className="items-center gap-12">
             <div className="flex flex-col gap-8">
-              <h1 className="text-primary text-4xl">Projects</h1>
-              <TabsList>
-                <TabsTrigger value="academic">Academic</TabsTrigger>
-                <TabsTrigger value="personal">Personal</TabsTrigger>
-              </TabsList>
+              <TextAnimate className="text-primary text-4xl">
+                Projects
+              </TextAnimate>
+              <BlurFade direction="up">
+                <TabsList>
+                  <TabsTrigger value="academic">Academic</TabsTrigger>
+                  <TabsTrigger value="personal">Personal</TabsTrigger>
+                </TabsList>
+              </BlurFade>
             </div>
 
             <TabsContent value="academic">
@@ -202,68 +223,80 @@ export default function Home() {
                 className="px-10"
               >
                 <CarouselContent className="px-10 mr-10 gap-4">
-                  {academicProjects.map((item) => (
+                  {academicProjects.map((item, index) => (
                     <CarouselItem key={item.title} className="basis-1/3">
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <Card
-                            key={item.title}
-                            className="h-full cursor-pointer"
-                          >
-                            <CardContent className="flex flex-col gap-6">
-                              <h2>{item.title}</h2>
-                              <h3 className="text-gray-500 text-sm">
+                      <BlurFade key={item.title} delay={index * 0.15}>
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <Card
+                              key={item.title}
+                              className="h-full cursor-pointer"
+                            >
+                              <CardContent className="flex flex-col gap-6">
+                                {/* {item.image && (
+                                <Image
+                                  src={`/projects/${item.image}.png`}
+                                  alt={`project-${item.image}`}
+                                  width={800}
+                                  height={300}
+                                  className="w-full h-auto rounded-lg"
+                                />
+                              )} */}
+                                <h2>{item.title}</h2>
+                                <h3 className="text-gray-500 text-sm">
+                                  {item.description}
+                                </h3>
+                                <div className="flex flex-wrap gap-4">
+                                  {item.techstack?.map((tech) => (
+                                    <Badge key={tech}>{tech}</Badge>
+                                  ))}
+                                </div>
+                              </CardContent>
+                            </Card>
+                          </DialogTrigger>
+                          <DialogContent className="gap-10">
+                            <DialogHeader>
+                              <DialogTitle className="text-primary font-normal">
+                                {item.title}
+                              </DialogTitle>
+                              <DialogDescription className="text-gray-500">
                                 {item.description}
-                              </h3>
+                              </DialogDescription>
+                            </DialogHeader>
+
+                            <div className="flex flex-col gap-2">
+                              <span className="text-sm text-primary uppercase">
+                                Contributers:
+                              </span>
+                              <span className="text-sm text-secondary-foreground">
+                                {item.contributers?.join(", ")}
+                              </span>
+                            </div>
+
+                            <div className="flex flex-col gap-2">
+                              <span className="text-sm text-primary uppercase">
+                                Tech stack:
+                              </span>
                               <div className="flex flex-wrap gap-4">
                                 {item.techstack?.map((tech) => (
                                   <Badge key={tech}>{tech}</Badge>
                                 ))}
                               </div>
-                            </CardContent>
-                          </Card>
-                        </DialogTrigger>
-                        <DialogContent className="gap-10">
-                          <DialogHeader>
-                            <DialogTitle className="text-primary font-normal">
-                              {item.title}
-                            </DialogTitle>
-                            <DialogDescription className="text-gray-500">
-                              {item.description}
-                            </DialogDescription>
-                          </DialogHeader>
-                          <div className="flex flex-col gap-2">
-                            <span className="text-sm text-primary uppercase">
-                              Contributers:
-                            </span>
-                            <span className="text-sm text-secondary-foreground">
-                              {item.contributers?.join(", ")}
-                            </span>
-                          </div>
-
-                          <div className="flex flex-col gap-2">
-                            <span className="text-sm text-primary uppercase">
-                              Tech stack:
-                            </span>
-                            <div className="flex flex-wrap gap-4">
-                              {item.techstack?.map((tech) => (
-                                <Badge key={tech}>{tech}</Badge>
-                              ))}
                             </div>
-                          </div>
 
-                          <div className="flex flex-col gap-2">
-                            <span className="text-sm text-primary uppercase">
-                              Features:
-                            </span>
-                            <ul className="list-disc list-inside space-y-1 text-sm text-secondary-foreground">
-                              {item.features?.map((feat) => (
-                                <li key={feat}>{feat}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        </DialogContent>
-                      </Dialog>
+                            <div className="flex flex-col gap-2">
+                              <span className="text-sm text-primary uppercase">
+                                Features:
+                              </span>
+                              <ul className="list-disc list-inside space-y-1 text-sm text-secondary-foreground">
+                                {item.features?.map((feat) => (
+                                  <li key={feat}>{feat}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </DialogContent>
+                        </Dialog>
+                      </BlurFade>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
@@ -277,45 +310,55 @@ export default function Home() {
           </Tabs>
         </section>
 
+        {/* CONTACT */}
         <section
           id="contact-me"
           className="flex min-h-screen snap-start p-30 items-center justify-center gap-20"
         >
           <div className="flex flex-col gap-8">
-            <h1 className="text-primary text-4xl">Contact Me</h1>
-            <Card className="h-min">
-              <CardContent className="flex flex-col gap-4">
-                <span className="flex gap-4">
-                  <Phone /> +60133388696
-                </span>
-                <span className="flex gap-4">
-                  <Mail /> nicolechen119@gmail.com
-                </span>
+            <TextAnimate
+              animation="slideLeft"
+              className="text-primary text-4xl"
+            >
+              Contact Me
+            </TextAnimate>
+            <BlurFade direction="left">
+              <Card className="h-min">
+                <CardContent className="flex flex-col gap-4">
+                  <span className="flex gap-4">
+                    <Phone /> +60133388696
+                  </span>
+                  <span className="flex gap-4">
+                    <Mail /> nicolechen119@gmail.com
+                  </span>
 
-                <div className="flex gap-2">
-                  <Link
-                    href={"https://www.linkedin.com/in/chenchoryan"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center w-10 h-10 rounded-full border border-border
+                  <div className="flex gap-2">
+                    <Link
+                      href={"https://www.linkedin.com/in/chenchoryan"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-10 h-10 rounded-full border border-border
                transition-colors bg-primary text-primary-foreground hover:bg-white hover:text-foreground p-2"
-                  >
-                    <Linkedin />
-                  </Link>
-                  <Link
-                    href={"https://www.github.com/Nikolrize"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center w-10 h-10 rounded-full border border-border
+                    >
+                      <Linkedin />
+                    </Link>
+                    <Link
+                      href={"https://www.github.com/Nikolrize"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-10 h-10 rounded-full border border-border
                transition-colors bg-primary text-primary-foreground hover:bg-white hover:text-foreground p-2"
-                  >
-                    <Github />
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
+                    >
+                      <Github />
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            </BlurFade>
           </div>
-          <ContactForm />
+          <BlurFade direction="right">
+            <ContactForm />
+          </BlurFade>
         </section>
       </div>
     </div>
