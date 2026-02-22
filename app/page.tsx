@@ -18,12 +18,7 @@ import {
 import { TextAnimate } from "@/components/ui/text-animate";
 import { academicProjects, introductionItems, skillsItems } from "@/lib/data";
 import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/8bit/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/8bit/card";
 import { Badge } from "@/components/ui/8bit/badge";
 import {
   Accordion,
@@ -46,9 +41,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/8bit/dialog";
-import { Github, Linkedin, Mail, Phone, Send } from "lucide-react";
-import { Input } from "@/components/ui/8bit/input";
-import { Textarea } from "@/components/ui/8bit/textarea";
+import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import ContactForm from "@/components/custom/contact-form";
 
 export default function Home() {
   return (
@@ -321,39 +315,7 @@ export default function Home() {
               </CardContent>
             </Card>
           </div>
-          <form>
-            <Card className="w-[35vw]">
-              <CardHeader>
-                <h1>Get in touch with me!</h1>
-              </CardHeader>
-              <CardContent className="flex flex-col gap-4 text-sm">
-                <div className="flex flex-col gap-2">
-                  <span className="text-secondary-foreground">Your Name:</span>
-                  <Input />
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <span className="text-secondary-foreground">Your Email:</span>
-                  <Input />
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <span className="text-secondary-foreground">Subject:</span>
-                  <Input />
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <span className="text-secondary-foreground">Content:</span>
-                  <Textarea />
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Button>
-                  Send <Send />
-                </Button>
-              </CardFooter>
-            </Card>
-          </form>
+          <ContactForm />
         </section>
       </div>
     </div>
