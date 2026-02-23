@@ -78,12 +78,12 @@ export function Timeline({ type }: TimelineProps) {
   if (type === "education")
     return (
       <div ref={containerRef} className="relative flex w-full">
-        <div className="flex w-full justify-between gap-12">
+        <div className="flex lg:flex-row flex-col max-h-[70vh] w-full justify-between gap-12 overflow-auto">
           {educationInfo.map((item) => (
-            <div key={item.index} className="flex flex-col gap-4">
+            <div key={item.index} className="flex lg:flex-col gap-4">
               <Circle ref={item.ref}>{item.index}</Circle>
 
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1 lg:text-base text-sm">
                 <span className="text-primary">
                   {item.startTime} - {!item.endTime ? "Present" : item.endTime}
                 </span>
@@ -119,12 +119,12 @@ export function Timeline({ type }: TimelineProps) {
   if (type === "work")
     return (
       <div ref={containerRef} className="relative flex w-full">
-        <div className="flex w-full justify-between gap-12">
+        <div className="flex lg:flex-row flex-col max-h-[70vh] w-full justify-between gap-12 overflow-auto">
           {workInfo.map((item) => (
-            <div key={item.index} className="flex flex-col gap-4">
+            <div key={item.index} className="flex lg:flex-col gap-4">
               <Circle ref={item.ref}>{item.index}</Circle>
 
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1 lg:text-base text-sm">
                 <span className="text-primary">
                   {item.startTime} - {!item.endTime ? "Current" : item.endTime}
                 </span>

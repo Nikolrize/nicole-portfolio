@@ -106,17 +106,18 @@ export default function AudioPlayer8bit() {
   }, [currentTrackIndex]);
 
   return (
-    <Card className="w-100">
+    <Card className="sm:w-100 w-auto">
       <CardContent className="flex flex-col items-center gap-4">
-        <Avatar variant="retro" className="size-50">
-          <AvatarImage src={currentTrack.cover} alt={currentTrack.title} />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
+        <div className="flex sm:flex-col gap-6 items-center">
+          <Avatar variant="retro" className="sm:size-50 size-25">
+            <AvatarImage src={currentTrack.cover} alt={currentTrack.title} />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
 
-        <audio ref={audioRef} src={currentTrack.src} />
+          <audio ref={audioRef} src={currentTrack.src} />
 
-        <div className="text-xs">{isPlaying ? "Now Playing..." : "Paused"}</div>
-        <div className="text-sm">{currentTrack.title}</div>
+          <div className="text-sm text-center">{currentTrack.title}</div>
+        </div>
 
         {/* Progress bar */}
         <input

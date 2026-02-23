@@ -6,12 +6,23 @@ import { Textarea } from "../ui/8bit/textarea";
 import { Button } from "../ui/8bit/button";
 import { Send } from "lucide-react";
 import { useRef } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "../ui/8bit/drawer";
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
   const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
   const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+  const isMobile = useIsMobile();
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,13 +38,68 @@ export default function ContactForm() {
     );
   };
 
+  if (isMobile)
+    return (
+      <Drawer>
+        <DrawerTrigger asChild>
+          <Button className="w-full">Contact Me Now!</Button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <form ref={formRef} onSubmit={sendEmail}>
+            <DrawerHeader>
+              <DrawerTitle className="font-normal text-primary">
+                Get In Touch With Me!
+              </DrawerTitle>
+            </DrawerHeader>
+            <div className="flex flex-col gap-4 text-xs p-6">
+              <div className="flex flex-col gap-2">
+                <span className="text-secondary-foreground">Your Name:</span>
+                <Input name="name" className="text-primary text-xs" />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <span className="text-secondary-foreground">Your Email:</span>
+                <Input
+                  type="email"
+                  name="email"
+                  className="text-primary text-xs"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <span className="text-secondary-foreground">Title:</span>
+                <Input name="title" className="text-primary text-xs" />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <span className="text-secondary-foreground">Message:</span>
+                <Textarea name="message" className="text-primary text-xs" />
+              </div>
+            </div>
+            <DrawerFooter>
+              <DrawerClose asChild>
+                <Button type="submit">
+                  Send <Send />
+                </Button>
+              </DrawerClose>
+              <DrawerClose asChild>
+                <Button variant="outline" className="text-primary">
+                  Cancel
+                </Button>
+              </DrawerClose>
+            </DrawerFooter>
+          </form>
+        </DrawerContent>
+      </Drawer>
+    );
+
   return (
     <form ref={formRef} onSubmit={sendEmail}>
-      <Card className="w-[35vw]">
+      <Card className="lg:w-[35vw]">
         <CardHeader>
           <h1>Get in touch with me!</h1>
         </CardHeader>
-        <CardContent className="flex flex-col gap-4 text-sm">
+        <CardContent className="flex flex-col gap-4 lg:text-sm text-xs">
           <div className="flex flex-col gap-2">
             <span className="text-secondary-foreground">Your Name:</span>
             <Input name="name" />

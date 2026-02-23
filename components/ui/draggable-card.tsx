@@ -65,7 +65,7 @@ export const DraggableCardBody = ({
         setConstraints({
           top: -window.innerHeight / 2,
           left: -window.innerWidth,
-          right: window.innerWidth / 2,
+          right: window.innerWidth,
           bottom: window.innerHeight / 2,
         });
       }
