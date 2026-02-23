@@ -20,16 +20,13 @@ import {
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
-  const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
-  const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
-  const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
   const isMobile = useIsMobile();
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formRef.current) return;
 
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY).then(
+    emailjs.sendForm("service_gmail", "template_portfolio", formRef.current, "uWZ2Z9RdOA-mctbhU").then(
       (result) => {
         console.log(result.text);
         toast("Email sent successfully!");
