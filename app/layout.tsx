@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Press_Start_2P } from "next/font/google";
 import "./globals.css";
 import CustomNavigationMenu from "@/components/custom/custom-navigation-menu";
 import { Toaster } from "@/components/ui/sonner";
-import { SidebarProvider } from "@/components/ui/sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +23,9 @@ const pressStart = Press_Start_2P({
 export const metadata: Metadata = {
   title: "Chor Yan's Portfolio",
   description: "Where I share my projects, experiences and me!",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -36,9 +38,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pressStart.variable} antialiased`}
       >
-          <CustomNavigationMenu />
-          <Toaster />
-          {children}
+        <CustomNavigationMenu />
+        <Toaster />
+        {children}
       </body>
     </html>
   );
