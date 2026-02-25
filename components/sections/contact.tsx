@@ -11,7 +11,7 @@ export default function Contact() {
       <div className="flex flex-col gap-4 w-full lg:w-auto">
         <TextAnimate
           animation="slideLeft"
-          className="text-primary md:text-4xl text-xl"
+          className="text-primary md:text-4xl text-lg"
         >
           Contact Me
         </TextAnimate>

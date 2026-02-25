@@ -8,10 +8,10 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col gap-4 text-center lg:text-start">
-        <TextAnimate animation="slideLeft" className="md:text-4xl text-xl text-primary">
+        <TextAnimate animation="slideLeft" className="md:text-4xl text-lg text-primary">
           Welcome to My Portfolio
         </TextAnimate>
-        <TextAnimate animation="slideLeft" className="md:text-2xl">
+        <TextAnimate animation="slideLeft" className="md:text-2xl text-sm">
           Where I share my projects, experiences and me!
         </TextAnimate>
 

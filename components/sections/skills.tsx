@@ -13,7 +13,7 @@ import { Badge } from "../ui/8bit/badge";
 export default function Skills() {
   return (
     <>
-      <TextAnimate className="text-primary md:text-4xl text-xl">
+      <TextAnimate className="text-primary md:text-4xl text-lg">
         Skills
       </TextAnimate>
       <div className="grid lg:grid-cols-3 lg:gap-6 gap-2 w-full p-2 overflow-y-auto">
@@ -23,7 +23,7 @@ export default function Skills() {
               <Card className="py-0">
                 <AccordionItem value={item.title}>
                   <AccordionTrigger className="pb-2 pr-6">
-                    <CardHeader>
+                    <CardHeader className="md:text-base text-xs">
                       <h2>{item.title}</h2>
                     </CardHeader>
                   </AccordionTrigger>
@@ -31,7 +31,7 @@ export default function Skills() {
                   <AccordionContent>
                     <CardContent className="flex flex-wrap gap-4">
                       {item.skills.map((skill) => (
-                        <Badge key={skill}>{skill}</Badge>
+                        <Badge key={skill} className="text-[11px]">{skill}</Badge>
                       ))}
                     </CardContent>
                   </AccordionContent>

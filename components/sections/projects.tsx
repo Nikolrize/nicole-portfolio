@@ -25,13 +25,17 @@ export default function Projects() {
     <>
       <Tabs defaultValue="academic" className="items-center gap-12">
         <div className="flex flex-col gap-8">
-          <TextAnimate className="text-primary md:text-4xl text-xl text-center">
+          <TextAnimate className="text-primary md:text-4xl text-lg text-center">
             Projects
           </TextAnimate>
           <BlurFade direction="up">
             <TabsList>
-              <TabsTrigger value="academic">Academic</TabsTrigger>
-              <TabsTrigger value="personal">Personal</TabsTrigger>
+              <TabsTrigger value="academic" className="md:text-base text-xs">
+                Academic
+              </TabsTrigger>
+              <TabsTrigger value="personal" className="md:text-base text-xs">
+                Personal
+              </TabsTrigger>
             </TabsList>
           </BlurFade>
         </div>
@@ -58,15 +62,15 @@ export default function Projects() {
                                   className="w-full h-auto rounded-lg"
                                 />
                               )} */}
-                            <h2>{item.title}</h2>
-                            <h3 className="text-gray-500 text-sm">
+                            <h2 className="md:text-base text-sm">{item.title}</h2>
+                            <h3 className="text-gray-500 md:text-sm text-xs">
                               {item.description}
                             </h3>
                             <div className="flex flex-wrap gap-4">
                               {item.techstack?.map((tech) => (
                                 <Badge
                                   key={tech}
-                                  className="max-w-full"
+                                  className="max-w-full text-[11px]"
                                   title={tech}
                                 >
                                   {tech}
@@ -78,10 +82,10 @@ export default function Projects() {
                       </DialogTrigger>
                       <DialogContent className="gap-10">
                         <DialogHeader>
-                          <DialogTitle className="text-primary font-normal">
+                          <DialogTitle className="text-primary md:text-base text-sm font-normal">
                             {item.title}
                           </DialogTitle>
-                          <DialogDescription className="text-gray-500">
+                          <DialogDescription className="text-gray-500 md:text-sm text-xs">
                             {item.description}
                           </DialogDescription>
                         </DialogHeader>
@@ -90,7 +94,7 @@ export default function Projects() {
                           <span className="text-sm text-primary uppercase">
                             Contributers:
                           </span>
-                          <span className="text-sm text-secondary-foreground">
+                          <span className="md:text-sm text-xs text-secondary-foreground">
                             {item.contributers?.join(", ")}
                           </span>
                         </div>
@@ -101,7 +105,7 @@ export default function Projects() {
                           </span>
                           <div className="flex flex-wrap gap-4">
                             {item.techstack?.map((tech) => (
-                              <Badge key={tech}>{tech}</Badge>
+                              <Badge key={tech} className="text-[11px]">{tech}</Badge>
                             ))}
                           </div>
                         </div>
@@ -110,7 +114,7 @@ export default function Projects() {
                           <span className="text-sm text-primary uppercase">
                             Features:
                           </span>
-                          <ul className="list-disc list-inside space-y-1 text-sm text-secondary-foreground">
+                          <ul className="list-disc list-inside space-y-1 text-secondary-foreground md:text-sm text-xs ">
                             {item.features?.map((feat) => (
                               <li key={feat}>{feat}</li>
                             ))}

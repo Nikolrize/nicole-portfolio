@@ -26,23 +26,32 @@ export default function ContactForm() {
     e.preventDefault();
     if (!formRef.current) return;
 
-    emailjs.sendForm("service_gmail", "template_portfolio", formRef.current, "uWZ2Z9RdOA-mctbhU").then(
-      (result) => {
-        console.log(result.text);
-        toast("Email sent successfully!");
-      },
-      (error) => {
-        console.log(error.text);
-        toast("Failed to send email");
-      },
-    );
+    emailjs
+      .sendForm(
+        "service_gmail",
+        "template_portfolio",
+        formRef.current,
+        "uWZ2Z9RdOA-mctbhU",
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          toast("Email sent successfully!");
+        },
+        (error) => {
+          console.log(error.text);
+          toast("Failed to send email");
+        },
+      );
   };
 
   if (isMobile)
     return (
       <Sheet>
         <SheetTrigger asChild>
-          <Button className="w-full">Contact Me Now!</Button>
+          <Button className="w-full text-xs">
+            Contact Me Now!
+          </Button>
         </SheetTrigger>
         <SheetContent className="min-w-full">
           <form
@@ -58,7 +67,11 @@ export default function ContactForm() {
             <div className="flex-1 flex flex-col px-10 py-2 gap-4 text-xs overflow-auto">
               <div className="flex flex-col gap-2">
                 <span className="text-secondary-foreground">Your Name:</span>
-                <Input name="name" className="text-primary" maxLength={50} />
+                <Input
+                  name="name"
+                  className="text-primary text-xs"
+                  maxLength={50}
+                />
               </div>
 
               <div className="flex flex-col gap-2">
@@ -66,21 +79,25 @@ export default function ContactForm() {
                 <Input
                   type="email"
                   name="email"
-                  className="text-primary"
+                  className="text-primary text-xs"
                   maxLength={50}
                 />
               </div>
 
               <div className="flex flex-col gap-2">
                 <span className="text-secondary-foreground">Title:</span>
-                <Input name="title" className="text-primary" maxLength={100} />
+                <Input
+                  name="title"
+                  className="text-primary text-xs"
+                  maxLength={100}
+                />
               </div>
 
               <div className="flex flex-col gap-2">
                 <span className="text-secondary-foreground">Message:</span>
                 <Textarea
                   name="message"
-                  className="text-primary"
+                  className="text-primary text-xs"
                   maxLength={300}
                 />
               </div>
@@ -88,12 +105,12 @@ export default function ContactForm() {
 
             <SheetFooter>
               <SheetClose asChild>
-                <Button type="submit">
+                <Button type="submit" className="text-xs">
                   Send <Send />
                 </Button>
               </SheetClose>
               <SheetClose asChild>
-                <Button variant="outline" className="text-primary">
+                <Button variant="outline" className="text-primary text-xs">
                   Cancel
                 </Button>
               </SheetClose>

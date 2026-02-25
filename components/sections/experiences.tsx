@@ -8,13 +8,20 @@ export default function Experiences() {
     <>
       <Tabs defaultValue="education" className="gap-12">
         <div className="flex flex-col gap-8">
-          <TextAnimate animation="slideLeft" className="text-primary md:text-4xl text-xl">
+          <TextAnimate
+            animation="slideLeft"
+            className="text-primary md:text-4xl text-lg"
+          >
             Experiences
           </TextAnimate>
           <BlurFade direction="left">
             <TabsList>
-              <TabsTrigger value="education">Education</TabsTrigger>
-              <TabsTrigger value="work">Work</TabsTrigger>
+              <TabsTrigger value="education" className="md:text-base text-xs">
+                Education
+              </TabsTrigger>
+              <TabsTrigger value="work" className="md:text-base text-xs">
+                Work
+              </TabsTrigger>
             </TabsList>
           </BlurFade>
         </div>

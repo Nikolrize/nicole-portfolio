@@ -15,10 +15,10 @@ export default function Introduction() {
       <DraggableCardContainer className="relative flex lg:flex-row flex-col min-h-screen w-full justify-center lg:justify-start items-center overflow-clip">
         <div className="flex flex-col gap-8 lg:max-w-[60%] lg:p-30 p-10">
           <div className="flex flex-col gap-4">
-            <TextAnimate animation="scaleUp" className="md:text-4xl text-xl text-primary">
+            <TextAnimate animation="scaleUp" className="md:text-4xl text-lg text-primary">
               Hi, I'm Chor Yan!
             </TextAnimate>
-            <TextAnimate animation="slideLeft" className="md:text-2xl">
+            <TextAnimate animation="slideLeft" className="md:text-2xl text-sm">
               A second-year degree student in Computer Science
             </TextAnimate>
           </div>
@@ -40,7 +40,7 @@ export default function Introduction() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button>View Resume</Button>
+              <Button className="md:text-base text-xs">View Resume</Button>
             </Link>
           </MotionSlideLeft>
         </div>

@@ -17,6 +17,7 @@ export default function ScrollToSectionButton({
       onClick={() =>
         document.getElementById(section)?.scrollIntoView({ behavior: "smooth" })
       }
+      className="md:text-base text-xs"
     >
       {children}
     </Button>

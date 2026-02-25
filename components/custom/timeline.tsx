@@ -83,7 +83,7 @@ export function Timeline({ type }: TimelineProps) {
             <div key={item.index} className="flex lg:flex-col gap-4">
               <Circle ref={item.ref}>{item.index}</Circle>
 
-              <div className="flex flex-col gap-1 lg:text-base text-xs">
+              <div className="flex flex-col gap-1 md:text-base text-xs">
                 <span className="text-primary">
                   {item.startTime} - {!item.endTime ? "Present" : item.endTime}
                 </span>
@@ -124,7 +124,7 @@ export function Timeline({ type }: TimelineProps) {
             <div key={item.index} className="flex lg:flex-col gap-4">
               <Circle ref={item.ref}>{item.index}</Circle>
 
-              <div className="flex flex-col gap-1 lg:text-base text-xs">
+              <div className="flex flex-col gap-1 md:text-base text-xs">
                 <span className="text-primary">
                   {item.startTime} - {!item.endTime ? "Current" : item.endTime}
                 </span>
