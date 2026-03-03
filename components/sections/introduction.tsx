@@ -36,7 +36,7 @@ export default function Introduction() {
 
           <MotionSlideLeft>
             <Link
-              href="/about-me/CV.pdf"
+              href="/about-me/Chen Chor Yan CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
