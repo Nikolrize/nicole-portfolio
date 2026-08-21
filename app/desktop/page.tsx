@@ -1,3 +1,4 @@
+import MusicWidget from "@/components/custom/music-widget";
 import Taskbar from "@/components/custom/taskbar";
 import DesktopContent from "@/components/new-sections/desktop-content";
 import { WindowProvider } from "@/components/providers/window-provider";
@@ -18,6 +19,9 @@ export default function Desktop() {
         <DesktopContent />
         <Taskbar />
       </WindowProvider>
+      <div className="absolute right-0 bottom-15">
+        <MusicWidget />
+      </div>
     </div>
   );
 }

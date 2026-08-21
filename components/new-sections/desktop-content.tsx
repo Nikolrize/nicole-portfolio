@@ -13,7 +13,7 @@ import Experiences from "./experiences";
 import { Timeline } from "../custom/timeline";
 import Skills from "./skills";
 import Projects from "./projects";
-import ContactMe from "./contact-me";
+import EmailComposer from "../custom/email-composer";
 
 export default function DesktopContent() {
   const { windows, openWindow, closeWindow, focusWindow } = useWindows();
@@ -21,7 +21,7 @@ export default function DesktopContent() {
   return (
     <>
       {/* Desktop Icons */}
-      <div className="absolute z-10 top-10 left-10">
+      <div className="absolute z-10 top-5 left-5">
         <div className="grid grid-flow-col grid-rows-[repeat(auto-fill,minmax(100px,1fr))] auto-cols-[100px] gap-6 max-h-[calc(100vh-160px)]">
           <DesktopIcon
             src="/desktop/computer.png"
@@ -105,7 +105,7 @@ function getWindowContent(id: WindowId) {
       return <Projects />;
 
     case "contactme":
-      return <ContactMe />;
+      return <EmailComposer />;
 
     case "education":
       return <Timeline type="education" />;

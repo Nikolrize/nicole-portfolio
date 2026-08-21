@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Card, CardContent } from "../ui/8bit/card";
 import Link from "next/link";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import { Button } from "../ui/8bit/button";
 import { TypingAnimation } from "../ui/typing-animation";
 
@@ -35,6 +35,24 @@ export default function AboutMe() {
               className="text-sm text-primary"
               loop
             />
+          </div>
+
+          <div className="flex flex-col text-xs text-muted-foreground gap-2">
+            <Link
+              href="tel:+60133388696"
+              className="flex items-center gap-2  hover:text-primary transition-colors"
+            >
+              <Phone size={15} />
+              <span className="hidden md:inline">+60133388696</span>
+            </Link>
+
+            <Link
+              href="mailto:nicolechen119@gmail.com"
+              className="flex items-center gap-2 hover:text-primary transition-colors"
+            >
+              <Mail size={15} />
+              <span className="hidden md:inline">nicolechen119@gmail.com</span>
+            </Link>
           </div>
 
           <div className="flex gap-2">
