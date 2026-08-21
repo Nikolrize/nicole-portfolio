@@ -49,9 +49,7 @@ export default function ContactForm() {
     return (
       <Sheet>
         <SheetTrigger asChild>
-          <Button className="w-full text-xs">
-            Contact Me Now!
-          </Button>
+          <Button className="w-full text-xs">Contact Me Now!</Button>
         </SheetTrigger>
         <SheetContent className="min-w-full">
           <form
@@ -60,7 +58,7 @@ export default function ContactForm() {
             className="flex flex-col h-full"
           >
             <SheetHeader>
-              <SheetTitle className="font-normal text-primary text-center">
+              <SheetTitle className="text-sm text-primary text-center">
                 Get In Touch With Me!
               </SheetTitle>
             </SheetHeader>
@@ -122,11 +120,9 @@ export default function ContactForm() {
 
   return (
     <form ref={formRef} onSubmit={sendEmail}>
-      <Card className="lg:w-[35vw]">
-        <CardHeader>
-          <h1>Get in touch with me!</h1>
-        </CardHeader>
-        <CardContent className="flex flex-col gap-4 lg:text-sm text-xs">
+      <Card>
+        <CardHeader className="text-sm">Get in touch with me!</CardHeader>
+        <CardContent className="flex flex-col gap-4 text-xs">
           <div className="flex flex-col gap-2">
             <span className="text-secondary-foreground">Your Name:</span>
             <Input name="name" maxLength={50} />
@@ -148,7 +144,7 @@ export default function ContactForm() {
           </div>
         </CardContent>
         <CardFooter>
-          <Button type="submit">
+          <Button type="submit" size={"sm"}>
             Send <Send />
           </Button>
         </CardFooter>

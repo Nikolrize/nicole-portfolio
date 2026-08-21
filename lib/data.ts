@@ -46,35 +46,44 @@ export const introductionItems = [
 
 export const skillsItems = [
   {
-    title: "Programming Languages",
-    skills: ["Python", "Java", "JavaScript", "TypeScript", "C", "C++", "PHP"],
-  },
-  {
-    title: "Frontend Development",
+    id: "languages",
+    title: "Languages",
     skills: [
-      "HTML",
-      "CSS",
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Bootstrap",
-      "Shadcn",
-      "Ant Design",
-      "i18n",
-      "Recoil",
+      "Python",
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "C++",
+      "C#",
+      "PHP",
+      "R",
+      "Dart",
     ],
   },
   {
-    title: "Backend Development",
-    skills: ["Node.js", "RESTful APIs", "GraphQL"],
+    id: "frontend",
+    title: "Frontend",
+    skills: ["React", "Next.js", "Flutter"],
   },
   {
+    id: "backend",
+    title: "Backend",
+    skills: ["Node.js", "ASP.NET", "Firebase"],
+  },
+  {
+    id: "database",
     title: "Databases",
-    skills: ["MySQL", "PostgreSQL"],
+    skills: ["MySQL", "PostgreSQL", "MongoDB"],
   },
   {
+    id: "tools",
+    title: "Tools",
+    skills: ["Git", "Vercel", "Render", "Postman"],
+  },
+  {
+    id: "others",
     title: "Others",
-    skills: ["Git", "GitHub", "Figma", "Arduino", "Cisco Networking"],
+    skills: ["Figma", "Arduino"],
   },
 ];
 
