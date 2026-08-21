@@ -11,7 +11,7 @@ export default function AboutMe() {
       {/* Top */}
       <div className="flex gap-10">
         <Card className="p-0">
-          <CardContent className="relative size-30 p-0 overflow-hidden">
+          <CardContent className="size-40 p-0 overflow-hidden">
             <Image
               src="/about-me/me.jpeg"
               alt="me"
@@ -22,18 +22,20 @@ export default function AboutMe() {
         </Card>
 
         <div className="flex flex-col justify-between">
-          <h1 className="text-muted-foreground  text-lg">
-            Chen Chor Yan (Nicole)
-          </h1>
-          <TypingAnimation
-            words={[
-              "Computer Science Student",
-              "Software Engineer",
-              "Full Stack Developer",
-            ]}
-            className="text-sm text-primary"
-            loop
-          />
+          <div className="flex flex-col gap-2">
+            <h1 className="text-muted-foreground text-lg">
+              Chen Chor Yan (Nicole)
+            </h1>
+            <TypingAnimation
+              words={[
+                "Computer Science Student",
+                "Software Engineer",
+                "Full Stack Developer",
+              ]}
+              className="text-sm text-primary"
+              loop
+            />
+          </div>
 
           <div className="flex gap-2">
             <Link
@@ -41,7 +43,7 @@ export default function AboutMe() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size={"sm"}>
+              <Button>
                 <Linkedin />
               </Button>
             </Link>
@@ -50,14 +52,14 @@ export default function AboutMe() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size={"sm"}>
+              <Button>
                 <Github />
               </Button>
             </Link>
           </div>
         </div>
       </div>
-      
+
       {/* Bottom */}
       <h2 className="text-sm text-muted-foreground">
         Computer Science student and Diploma in ICT graduate with hands-on

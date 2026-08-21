@@ -144,7 +144,7 @@ export default function ContactForm() {
           </div>
         </CardContent>
         <CardFooter>
-          <Button type="submit" size={"sm"}>
+          <Button type="submit" className="text-xs">
             Send <Send />
           </Button>
         </CardFooter>

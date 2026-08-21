@@ -32,7 +32,7 @@ export default function ContactMe() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button size={"sm"}>
+            <Button>
               <Linkedin />
             </Button>
           </Link>
@@ -41,7 +41,7 @@ export default function ContactMe() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button size={"sm"}>
+            <Button>
               <Github />
             </Button>
           </Link>
