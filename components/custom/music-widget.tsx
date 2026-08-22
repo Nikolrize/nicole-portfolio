@@ -6,7 +6,6 @@ import { Pause, Play, SkipBack, SkipForward, Volume2 } from "lucide-react";
 
 import { Button } from "../ui/8bit/button";
 import { playlist } from "@/lib/data";
-import { Progress } from "../ui/8bit/progress";
 import { Slider } from "../ui/slider";
 
 export default function MusicWidget() {
@@ -110,7 +109,7 @@ export default function MusicWidget() {
   }, [currentTrackIndex]);
 
   return (
-    <div className="w-[25vw] border-4 border-primary bg-background p-3 shadow-lg">
+    <div className="max-w-[25vw] border-4 border-primary bg-background p-3 shadow-lg">
       <audio ref={audioRef} />
 
       {/* Track Information */}
@@ -128,7 +127,9 @@ export default function MusicWidget() {
         {/* Song */}
         <div className="min-w-0 flex-1">
           <p className="truncate text-sm text-primary">{currentTrack.title}</p>
-          <p className="text-xs text-muted-foreground">Now Playing</p>
+          <p className="text-xs text-muted-foreground">
+            {isPlaying ? "Now Playing" : "Paused"}
+          </p>
 
           {/* Progress */}
           <Slider
@@ -148,7 +149,7 @@ export default function MusicWidget() {
           />
 
           {/* Controls */}
-          <div className="mt-2 ml-2 flex items-center justify-center gap-2">
+          <div className="mt-2 flex items-center justify-center gap-2">
             <Button size="icon" onClick={prevTrack}>
               <SkipBack size={16} />
             </Button>

@@ -34,27 +34,27 @@ export const skillsItems = [
   },
   {
     id: "frontend",
-    title: "Frontend",
+    label: "Frontend",
     skills: ["React", "Next.js", "Flutter"],
   },
   {
     id: "backend",
-    title: "Backend",
+    label: "Backend",
     skills: ["Node.js", "ASP.NET", "Firebase"],
   },
   {
     id: "database",
-    title: "Databases",
+    label: "Databases",
     skills: ["MySQL", "PostgreSQL", "MongoDB"],
   },
   {
     id: "tools",
-    title: "Tools",
+    label: "Tools",
     skills: ["Git", "Vercel", "Render", "Postman"],
   },
   {
     id: "others",
-    title: "Others",
+    label: "Others",
     skills: ["Figma", "Arduino"],
   },
 ];
@@ -96,7 +96,7 @@ export const academicProjects = [
     ],
   },
   {
-    label: "Automated Transaction System",
+    title: "Automated Transaction System",
     description: "Python-based system for managing business transactions",
     techstack: ["Python", "JSON"],
     features: [
