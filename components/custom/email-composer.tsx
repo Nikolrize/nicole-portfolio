@@ -2,12 +2,10 @@
 
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
-import { Send, Paperclip } from "lucide-react";
-
+import { Send } from "lucide-react";
 import { Button } from "../ui/8bit/button";
 import { Input } from "../ui/8bit/input";
 import { Textarea } from "../ui/8bit/textarea";
-import { Card, CardContent, CardFooter } from "../ui/8bit/card";
 import { toast } from "../ui/8bit/toast";
 
 export default function EmailComposer() {
@@ -23,10 +21,10 @@ export default function EmailComposer() {
 
     try {
       await emailjs.sendForm(
-        "service_gmail",
-        "template_portfolio",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         formRef.current,
-        "uWZ2Z9RdOA-mctbhU",
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
       );
 
       toast("Email sent successfully!");
