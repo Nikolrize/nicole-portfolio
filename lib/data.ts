@@ -16,38 +16,10 @@ export const playlist = [
   },
 ];
 
-export const introductionItems = [
-  {
-    title: "Cosplay",
-    image: "/about-me/cosplay.jpeg",
-    className: "absolute top-[14%] right-[6%] rotate-[5deg]",
-  },
-  {
-    title: "IOT",
-    image: "/about-me/iot.png",
-    className: "absolute top-[10%] right-[20%] -rotate-[8deg]",
-  },
-  {
-    title: "Entrepreneur",
-    image: "/about-me/entrepreneur.png",
-    className: "absolute bottom-[10%] right-[9%] rotate-[8deg]",
-  },
-  {
-    title: "Diploma",
-    image: "/about-me/diploma.png",
-    className: "absolute bottom-[15%] right-[18%] -rotate-[5deg]",
-  },
-  {
-    title: "Formal",
-    image: "/about-me/me.jpeg",
-    className: "absolute top-[25%] right-[13%]",
-  },
-];
-
 export const skillsItems = [
   {
     id: "languages",
-    title: "Languages",
+    label: "Languages",
     skills: [
       "Python",
       "Java",
@@ -91,7 +63,6 @@ export const academicProjects = [
   {
     title: "MyTour",
     description: "AI-powered trip planner for tourists in Malaysia.",
-    image: "mytour",
     techstack: [
       "Node.js",
       "Next.js",
@@ -104,13 +75,6 @@ export const academicProjects = [
       "Interactive map with routing",
       "Community page for trip plan sharing",
     ],
-    contributers: [
-      "Chen Chor Yan",
-      "Dylan Ho Wei Jun",
-      "Alexander Leslie Cheng",
-      "Kylan Shane Sedrick",
-      "Narish Kumar Dey",
-    ],
   },
   {
     title: "Inoit - Your next school in pocket",
@@ -120,38 +84,24 @@ export const academicProjects = [
       "Teacher & student roles with quiz features",
       "Custom GIFs, leaderboards, responsive UI",
     ],
-    contributers: [
-      "Chen Chor Yan",
-      "Dylan Ho Wei Jun",
-      "Alexander Leslie Cheng",
-      "Pang Ee Tong",
-    ],
   },
   {
     title: "Hostel Management Fees Payment System",
     description: "Java application for managing hostel fee payments.",
-    image: "oop",
     techstack: ["Java"],
     features: [
       "Developed using an object-oriented approach.",
       "Role-based access: manager, staff, resident",
       "Secure login, account control, payment tracking",
     ],
-    contributers: ["Chen Chor Yan", "Dylan Ho Wei Jun"],
   },
   {
-    title: "Automated Transaction System",
+    label: "Automated Transaction System",
     description: "Python-based system for managing business transactions",
-    image: "pwp",
     techstack: ["Python", "JSON"],
     features: [
       "Role-based modules: customer, admin, inventory staff, super user",
       "Order processing, payment, reports",
-    ],
-    contributers: [
-      "Chen Chor Yan",
-      "Dylan Ho Wei Jun",
-      "Alexander Leslie Cheng",
     ],
   },
 ];

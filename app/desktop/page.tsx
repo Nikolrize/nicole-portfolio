@@ -1,6 +1,6 @@
 import MusicWidget from "@/components/custom/music-widget";
 import Taskbar from "@/components/custom/taskbar";
-import DesktopContent from "@/components/new-sections/desktop-content";
+import DesktopContent from "@/components/sections/desktop-content";
 import { WindowProvider } from "@/components/providers/window-provider";
 import Image from "next/image";
 

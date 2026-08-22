@@ -1,46 +1,61 @@
-import { skillsItems } from "@/lib/data";
-import { TextAnimate } from "../ui/text-animate";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../ui/8bit/accordion";
-import { BlurFade } from "../ui/blur-fade";
-import { Card, CardContent, CardHeader } from "../ui/8bit/card";
+"use client";
+
+import { useState } from "react";
 import { Badge } from "../ui/8bit/badge";
+import { skillsItems } from "@/lib/data";
+
+type SkillCategory =
+  | "languages"
+  | "frontend"
+  | "backend"
+  | "database"
+  | "tools"
+  | "others";
 
 export default function Skills() {
-  return (
-    <>
-      <TextAnimate className="text-primary md:text-4xl text-lg">
-        Skills
-      </TextAnimate>
-      <div className="grid lg:grid-cols-3 lg:gap-6 gap-2 w-full p-2 overflow-y-auto">
-        {skillsItems.map((item, index) => (
-          <Accordion key={item.title} type="multiple">
-            <BlurFade key={item.title} delay={index * 0.1}>
-              <Card className="py-0">
-                <AccordionItem value={item.title}>
-                  <AccordionTrigger className="pb-2 pr-6">
-                    <CardHeader className="md:text-base text-xs">
-                      <h2>{item.title}</h2>
-                    </CardHeader>
-                  </AccordionTrigger>
+  const [activeCategory, setActiveCategory] =
+    useState<SkillCategory>("languages");
 
-                  <AccordionContent>
-                    <CardContent className="flex flex-wrap gap-4">
-                      {item.skills.map((skill) => (
-                        <Badge key={skill} className="text-[11px]">{skill}</Badge>
-                      ))}
-                    </CardContent>
-                  </AccordionContent>
-                </AccordionItem>
-              </Card>
-            </BlurFade>
-          </Accordion>
-        ))}
-      </div>
-    </>
+  const category = skillsItems.find((item) => item.id === activeCategory);
+
+  return (
+    <div className="flex min-h-[40vh]">
+      {/* Sidebar */}
+      <aside className="border-r-2 border-primary pr-4">
+        <div className="flex flex-col gap-2">
+          {skillsItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => setActiveCategory(item.id as SkillCategory)}
+              className={`
+                flex items-center gap-2 p-2 rounded-sm
+                text-left text-sm
+                transition-colors
+                ${
+                  activeCategory === item.id
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:bg-muted"
+                }
+              `}
+            >
+              <span>{item.label}</span>
+            </button>
+          ))}
+        </div>
+      </aside>
+
+      {/* Content */}
+      <main className="flex-1 pl-6">
+        <div className="mb-6">
+          <h2 className="text-lg text-primary">{category?.label}</h2>
+        </div>
+
+        <div className="flex flex-wrap gap-5">
+          {category?.skills.map((skill) => (
+            <Badge key={skill}>{skill}</Badge>
+          ))}
+        </div>
+      </main>
+    </div>
   );
 }
