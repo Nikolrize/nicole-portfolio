@@ -1,61 +1,36 @@
 "use client";
 
+import { windowConfig } from "@/lib/data";
 import { createContext, ReactNode, useContext, useState } from "react";
 
-export type WindowId =
-  | "aboutme"
-  | "cv"
-  | "experiences"
-  | "skills"
-  | "projects"
-  | "contactme"
-  | "education"
-  | "work";
-
-export const windowTitles: Record<WindowId, string> = {
-  aboutme: "About Me",
-  cv: "My CV",
-  experiences: "Experiences",
-  skills: "Skills",
-  projects: "Projects",
-  contactme: "Contact Me",
-  education: "Education",
-  work: "Work",
-};
-
-export const windowIcons: Record<WindowId, string> = {
-  aboutme: "/desktop/computer.png",
-  cv: "/desktop/cv.png",
-  experiences: "/desktop/experiences.png",
-  skills: "/desktop/skills.png",
-  projects: "/desktop/projects.png",
-  contactme: "/desktop/contact me.png",
-  education: "/desktop/file.png",
-  work: "/desktop/file.png"
-};
+export type WindowId = keyof typeof windowConfig;
 
 interface WindowState {
   id: WindowId;
   x: number;
   y: number;
+  zIndex: number;
+  isMaximized: boolean;
 }
 
 interface WindowContextType {
-  windows: WindowState[];
+  openWindows: WindowState[];
   activeWindow: WindowId | null;
   openWindow: (id: WindowId) => void;
   closeWindow: (id: WindowId) => void;
   focusWindow: (id: WindowId) => void;
+  toggleMaximize: (id: WindowId) => void;
 }
 
 const WindowContext = createContext<WindowContextType | null>(null);
 
 export function WindowProvider({ children }: { children: ReactNode }) {
+  const [openWindows, setOpenWindows] = useState<WindowState[]>([]);
   const [activeWindow, setActiveWindow] = useState<WindowId | null>(null);
-  const [windows, setWindows] = useState<WindowState[]>([]);
+  const [nextZIndex, setNextZIndex] = useState(20);
 
   const openWindow = (id: WindowId) => {
-    setWindows((current) => {
+    setOpenWindows((current) => {
       if (current.some((window) => window.id === id)) {
         return current;
       }
@@ -68,31 +43,64 @@ export function WindowProvider({ children }: { children: ReactNode }) {
           id,
           x: offset,
           y: offset,
+          zIndex: nextZIndex,
+          isMaximized: false,
         },
       ];
     });
 
+    setNextZIndex((current) => current + 1);
     setActiveWindow(id);
   };
 
   const closeWindow = (id: WindowId) => {
-    setWindows((current) => current.filter((window) => window.id !== id));
+    setOpenWindows((current) => current.filter((window) => window.id !== id));
 
     setActiveWindow((current) => (current === id ? null : current));
   };
 
   const focusWindow = (id: WindowId) => {
+    setOpenWindows((current) =>
+      current.map((window) =>
+        window.id === id
+          ? {
+              ...window,
+              zIndex: nextZIndex,
+            }
+          : window,
+      ),
+    );
+
+    setNextZIndex((current) => current + 1);
+    setActiveWindow(id);
+  };
+  
+  const toggleMaximize = (id: WindowId) => {
+    setOpenWindows((current) =>
+      current.map((window) =>
+        window.id === id
+          ? {
+              ...window,
+              isMaximized: !window.isMaximized,
+              zIndex: nextZIndex,
+            }
+          : window,
+      ),
+    );
+
+    setNextZIndex((current) => current + 1);
     setActiveWindow(id);
   };
 
   return (
     <WindowContext.Provider
       value={{
-        windows,
+        openWindows,
         activeWindow,
         openWindow,
         closeWindow,
         focusWindow,
+        toggleMaximize,
       }}
     >
       {children}

@@ -19,7 +19,7 @@ export default function Skills() {
   const category = skillsItems.find((item) => item.id === activeCategory);
 
   return (
-    <div className="flex min-h-[40vh]">
+    <div className="flex h-full">
       {/* Sidebar */}
       <aside className="border-r-2 border-primary pr-4">
         <div className="flex flex-col gap-2">
@@ -47,7 +47,7 @@ export default function Skills() {
       {/* Content */}
       <main className="flex-1 pl-6">
         <div className="mb-6">
-          <h2 className="text-lg text-primary">{category?.label}</h2>
+          <h2 className="text-lg text-muted-foreground">{category?.label}</h2>
         </div>
 
         <div className="flex flex-wrap gap-5">

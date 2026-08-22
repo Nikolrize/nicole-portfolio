@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/8bit/button";
 import { Menubar, MenubarMenu } from "@/components/ui/8bit/menubar";
 import { useClickSound } from "@/hooks/use-click-sound";
 import { useEffect, useState } from "react";
-import { useWindows, windowIcons } from "../providers/window-provider";
+import { windowConfig } from "@/lib/data";
+import { useWindows } from "../providers/window-provider";
 
 export default function Taskbar() {
-  const { windows, activeWindow, focusWindow } = useWindows();
+  const { activeWindow, focusWindow, openWindows } = useWindows();
   const playClickSound = useClickSound();
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -33,7 +34,7 @@ export default function Taskbar() {
   });
 
   return (
-    <Menubar className="absolute bottom-0 z-20 w-full border-b-0 border-t-5 p-6">
+    <Menubar className="absolute bottom-0 z-1000 w-full border-b-0 border-t-5 p-6">
       <MenubarMenu>
         <div className="flex items-center justify-center w-full">
           {/* Start */}
@@ -82,23 +83,26 @@ export default function Taskbar() {
           </Button>
 
           {/* Active Tab */}
-          {windows.map((window) => {
+          {openWindows.map((window) => {
             const isActive = window.id === activeWindow;
+            const windowInfo = windowConfig[window.id];
 
             return (
               <Button
                 key={window.id}
                 variant="ghost"
                 size="sm"
-                className={`p-2 ${isActive ? "bg-primary h-full rounded-sm" : ""}`}
+                className={`p-2 ${
+                  isActive ? "bg-primary h-full rounded-sm" : ""
+                }`}
                 onClick={() => {
                   playClickSound();
                   focusWindow(window.id);
                 }}
               >
                 <Image
-                  src={windowIcons[window.id]}
-                  alt={window.id}
+                  src={windowInfo.icon}
+                  alt={windowInfo.title}
                   width={30}
                   height={30}
                 />

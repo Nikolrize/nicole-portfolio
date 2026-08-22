@@ -1,3 +1,5 @@
+"use client";
+
 import DesktopIcon from "../custom/desktop-icon";
 import { useWindows } from "../providers/window-provider";
 
@@ -7,6 +9,7 @@ export default function Experiences() {
   return (
     <div className="flex flex-row">
       <DesktopIcon
+        id="education"
         src="/desktop/file.png"
         alt="education"
         label="Education"
@@ -14,6 +17,7 @@ export default function Experiences() {
       />
 
       <DesktopIcon
+        id="work"
         src="/desktop/file.png"
         alt="work"
         label="Work"

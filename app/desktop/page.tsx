@@ -2,117 +2,52 @@
 
 import DesktopIcon from "@/components/custom/desktop-icon";
 import DesktopWindow from "@/components/custom/desktop-window";
-import EmailComposer from "@/components/custom/email-composer";
-import MusicWidget from "@/components/custom/music-widget";
-import { Timeline } from "@/components/custom/timeline";
-import {
-  useWindows,
-  WindowId,
-  windowTitles,
-} from "@/components/providers/window-provider";
-import AboutMe from "@/components/sections/about-me";
-import Experiences from "@/components/sections/experiences";
-import MyCV from "@/components/sections/my-cv";
-import Projects from "@/components/sections/projects";
-import Skills from "@/components/sections/skills";
+import { useWindows } from "@/components/providers/window-provider";
+import { desktopIcons, windowConfig } from "@/lib/data";
+import { windowContent } from "@/lib/window-content";
 
 export default function Desktop() {
-  const { windows, openWindow, closeWindow, focusWindow } = useWindows();
+  const { openWindows, openWindow, closeWindow, focusWindow, toggleMaximize } =
+    useWindows();
 
   return (
     <>
       {/* Desktop Icons */}
       <div className="absolute z-10 top-5 left-5">
         <div className="grid grid-flow-col grid-rows-[repeat(auto-fill,minmax(100px,1fr))] auto-cols-[100px] gap-6 max-h-[calc(100vh-160px)]">
-          <DesktopIcon
-            src="/desktop/computer.png"
-            alt="computer"
-            label="About Me"
-            onClick={() => openWindow("aboutme")}
-          />
-
-          <DesktopIcon
-            src="/desktop/cv.png"
-            alt="cv"
-            label="My CV"
-            width={50}
-            height={50}
-            onClick={() => openWindow("cv")}
-          />
-
-          <DesktopIcon
-            src="/desktop/experiences.png"
-            alt="experiences"
-            label="Experiences"
-            onClick={() => openWindow("experiences")}
-          />
-
-          <DesktopIcon
-            src="/desktop/skills.png"
-            alt="skills"
-            label="Skills"
-            onClick={() => openWindow("skills")}
-          />
-
-          <DesktopIcon
-            src="/desktop/projects.png"
-            alt="projects"
-            label="Projects"
-            onClick={() => openWindow("projects")}
-          />
-
-          <DesktopIcon
-            src="/desktop/contact me.png"
-            alt="contact me"
-            label="Contact Me"
-            onClick={() => openWindow("contactme")}
-          />
+          {desktopIcons.map((icon) => (
+            <DesktopIcon
+              key={icon.id}
+              id={icon.id}
+              src={icon.src}
+              alt={icon.alt}
+              label={icon.label}
+              width={icon.width}
+              height={icon.height}
+              onClick={() => openWindow(icon.id)}
+            />
+          ))}
         </div>
       </div>
 
       {/* Desktop Window */}
-      {windows.map((window) => (
+      {openWindows.map((window) => (
         <DesktopWindow
           key={window.id}
-          title={windowTitles[window.id]}
+          title={windowConfig[window.id].title}
           onClose={() => closeWindow(window.id)}
           onFocus={() => focusWindow(window.id)}
+          onMaximize={() => toggleMaximize(window.id)}
+          isMaximized={window.isMaximized}
           initialPosition={{
             x: window.x,
             y: window.y,
           }}
+          style={{ zIndex: window.zIndex }}
         >
-          {getWindowContent(window.id)}
+          {windowContent[window.id]}
         </DesktopWindow>
       ))}
     </>
   );
-}
-
-function getWindowContent(id: WindowId) {
-  switch (id) {
-    case "aboutme":
-      return <AboutMe />;
-
-    case "cv":
-      return <MyCV />;
-
-    case "experiences":
-      return <Experiences />;
-
-    case "skills":
-      return <Skills />;
-
-    case "projects":
-      return <Projects />;
-
-    case "contactme":
-      return <EmailComposer />;
-
-    case "education":
-      return <Timeline type="education" />;
-
-    case "work":
-      return <Timeline type="work" />;
-  }
 }

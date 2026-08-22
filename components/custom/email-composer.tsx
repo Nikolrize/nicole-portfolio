@@ -41,7 +41,7 @@ export default function EmailComposer() {
   return (
     <form ref={formRef} onSubmit={sendEmail}>
       {/* Email Header */}
-      <div className="flex flex-col max-w-[50vw] gap-6">
+      <div className="flex flex-col gap-6">
         {/* To, From, Subject */}
         <div className="grid grid-cols-6 grid-rows-3 gap-2 items-center">
           <span className="text-xs text-primary col-span-1">To:</span>
@@ -76,7 +76,7 @@ export default function EmailComposer() {
           placeholder="Write your message..."
           required
           maxLength={1000}
-          className="h-[40vh] text-xs text-muted-foreground  placeholder:text-foreground"
+          className="min-h-[40vh] resize-none text-xs text-muted-foreground placeholder:text-foreground"
         />
       </div>
 

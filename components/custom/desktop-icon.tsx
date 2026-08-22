@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { useClickSound } from "@/hooks/use-click-sound";
 import { Button } from "../ui/8bit/button";
+import { WindowId } from "../providers/window-provider";
 
-interface DesktopIconProps {
+export interface DesktopIconProps {
+  id: WindowId;
   src: string;
   alt: string;
   label: string;
