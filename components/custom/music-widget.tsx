@@ -109,7 +109,7 @@ export default function MusicWidget() {
   }, [currentTrackIndex]);
 
   return (
-    <div className="max-w-[25vw] border-4 border-primary bg-background p-3 shadow-lg">
+    <div className="md:max-w-[25vw] max-w-[90vw] border-4 border-primary bg-background p-3 shadow-lg">
       <audio ref={audioRef} />
 
       {/* Track Information */}

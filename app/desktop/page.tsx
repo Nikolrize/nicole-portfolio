@@ -1,9 +1,9 @@
 "use client";
 
-import DesktopIcon from "@/components/custom/desktop-icon";
+import DesktopIcon from "@/components/custom/icon";
 import DesktopWindow from "@/components/custom/desktop-window";
 import { useWindows } from "@/components/providers/window-provider";
-import { desktopIcons, windowConfig } from "@/lib/data";
+import { icons, windowConfig } from "@/lib/data";
 import { windowContent } from "@/lib/window-content";
 
 export default function Desktop() {
@@ -15,7 +15,7 @@ export default function Desktop() {
       {/* Desktop Icons */}
       <div className="absolute z-10 top-5 left-5">
         <div className="grid grid-flow-col grid-rows-[repeat(auto-fill,minmax(100px,1fr))] auto-cols-[100px] gap-6 max-h-[calc(100vh-160px)]">
-          {desktopIcons.map((icon) => (
+          {icons.map((icon) => (
             <DesktopIcon
               key={icon.id}
               id={icon.id}

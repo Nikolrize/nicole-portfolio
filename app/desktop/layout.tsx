@@ -1,6 +1,6 @@
 import Image from "next/image";
 import MusicWidget from "@/components/custom/music-widget";
-import Taskbar from "@/components/custom/taskbar";
+import DesktopTaskbar from "@/components/custom/taskbar";
 import { WindowProvider } from "@/components/providers/window-provider";
 
 export default function DesktopLayout({
@@ -20,7 +20,7 @@ export default function DesktopLayout({
 
       <WindowProvider>
         {children}
-        <Taskbar />
+        <DesktopTaskbar />
       </WindowProvider>
 
       <div className="absolute right-0 bottom-15">

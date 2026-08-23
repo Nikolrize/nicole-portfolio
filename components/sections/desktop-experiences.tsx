@@ -1,9 +1,9 @@
 "use client";
 
-import DesktopIcon from "../custom/desktop-icon";
+import DesktopIcon from "../custom/icon";
 import { useWindows } from "../providers/window-provider";
 
-export default function Experiences() {
+export default function DesktopExperiences() {
   const { openWindow } = useWindows();
 
   return (

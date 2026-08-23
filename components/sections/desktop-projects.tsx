@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import { academicProjects, personalProjects } from "@/lib/data";
-import DesktopIcon from "../custom/desktop-icon";
+import DesktopIcon from "../custom/icon";
 import { useWindows } from "../providers/window-provider";
-import { Card, CardContent, CardHeader } from "../ui/8bit/card";
 import { Badge } from "../ui/8bit/badge";
 
 export interface Project {
@@ -15,7 +14,7 @@ export interface Project {
   features: string[];
 }
 
-export default function Projects() {
+export default function DesktopProjects() {
   const { openWindow } = useWindows();
 
   return (

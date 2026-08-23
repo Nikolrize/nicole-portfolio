@@ -1,8 +1,10 @@
 "use client";
 
+import { useIsMobile } from "@/hooks/use-mobile";
 import { useState } from "react";
 import { Badge } from "../ui/8bit/badge";
 import { skillsItems } from "@/lib/data";
+import { Button } from "../ui/8bit/button";
 
 type SkillCategory =
   | "languages"
@@ -13,6 +15,12 @@ type SkillCategory =
   | "others";
 
 export default function Skills() {
+  const isMobile = useIsMobile();
+
+  return isMobile ? <MobileSkills /> : <DesktopSkills />;
+}
+
+function DesktopSkills() {
   const [activeCategory, setActiveCategory] =
     useState<SkillCategory>("languages");
 
@@ -56,6 +64,65 @@ export default function Skills() {
           ))}
         </div>
       </main>
+    </div>
+  );
+}
+
+function MobileSkills() {
+  const [activeCategory, setActiveCategory] =
+    useState<SkillCategory>("languages");
+
+  const category = skillsItems.find((item) => item.id === activeCategory);
+
+  return (
+    <div className="flex flex-col gap-5">
+      {/* Header */}
+      <div>
+        <h1 className="text-lg text-primary">Skills</h1>
+
+        <p className="text-xs text-muted-foreground mt-1">
+          Technologies and tools I work with
+        </p>
+      </div>
+
+      {/* Category selector */}
+      <div className="flex gap-2 overflow-x-auto pb-2">
+        {skillsItems.map((item) => {
+          const isActive = activeCategory === item.id;
+
+          return (
+            <Button
+              key={item.id}
+              variant={isActive ? "default" : "secondary"}
+              size={"sm"}
+              className="text-xs"
+              onClick={() => setActiveCategory(item.id as SkillCategory)}
+            >
+              {item.label}
+            </Button>
+          );
+        })}
+      </div>
+
+      {/* Selected category */}
+      <div className="flex flex-col gap-3">
+        <div>
+          <h2 className="text-sm text-primary">{category?.label}</h2>
+
+          <p className="text-xs text-muted-foreground mt-1">
+            {category?.skills.length} technologies
+          </p>
+        </div>
+
+        {/* Skills */}
+        <div className="grid grid-cols-2 gap-3">
+          {category?.skills.map((skill) => (
+            <Button variant={"outline"} key={skill}>
+              <span className="text-xs text-muted-foreground">{skill}</span>
+            </Button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

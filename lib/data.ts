@@ -1,5 +1,5 @@
-import { DesktopIconProps } from "@/components/custom/desktop-icon";
-import { Project } from "@/components/sections/projects";
+import { IconProps } from "@/components/custom/icon";
+import { Project } from "@/components/sections/desktop-projects";
 
 export const playlist = [
   {
@@ -19,7 +19,7 @@ export const playlist = [
   },
 ];
 
-export const desktopIcons: DesktopIconProps[] = [
+export const icons: IconProps[] = [
   {
     id: "aboutme",
     src: "/desktop/computer.png",
