@@ -46,7 +46,7 @@ export function AcademicProjects() {
   return (
     <div className="flex h-full">
       {/* Sidebar */}
-      <aside className="border-r-2 border-primary pr-4">
+      <aside className="border-r-2 border-primary pr-4 max-w-[18vw]">
         <div className="flex flex-col gap-2">
           {academicProjects.map((item) => (
             <button
@@ -55,7 +55,7 @@ export function AcademicProjects() {
               className={`
                 flex items-center gap-2 p-2 rounded-sm
                 text-left text-sm
-                transition-colors w-[15vw]
+                transition-colors
                 ${
                   activeProject === item.id
                     ? "bg-primary text-primary-foreground"
@@ -119,7 +119,7 @@ export function PersonalProjects() {
   return (
     <div className="flex h-full">
       {/* Sidebar */}
-      <aside className="border-r-2 border-primary pr-4">
+      <aside className="border-r-2 border-primary pr-4 max-w-[18vw]">
         <div className="flex flex-col gap-2">
           {personalProjects.map((item) => (
             <button
@@ -128,7 +128,7 @@ export function PersonalProjects() {
               className={`
                 flex items-center gap-2 p-2 rounded-sm
                 text-left text-sm
-                transition-colors w-[15vw]
+                transition-colors
                 ${
                   activeProject === item.id
                     ? "bg-primary text-primary-foreground"

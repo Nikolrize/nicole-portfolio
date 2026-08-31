@@ -109,7 +109,7 @@ export default function MusicWidget() {
   }, [currentTrackIndex]);
 
   return (
-    <div className="md:max-w-[25vw] max-w-[90vw] border-4 border-primary bg-background p-3 shadow-lg">
+    <div className="md:w-[25vw] w-[90vw] border-4 border-primary bg-background p-3 shadow-lg">
       <audio ref={audioRef} />
 
       {/* Track Information */}
@@ -163,7 +163,7 @@ export default function MusicWidget() {
             </Button>
 
             {/* Volume */}
-            <div className="relative">
+            <div className="relative hidden md:block">
               <Button
                 size="icon"
                 onClick={() => setShowVolume((prev) => !prev)}
