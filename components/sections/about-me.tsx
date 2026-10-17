@@ -89,6 +89,23 @@ export default function AboutMe() {
           projects. Passionate about software engineering, eager to learn, and
           committed to creating meaningful and practical solutions.
         </h2>
+
+        {/* ECV Video */}
+        <div className="flex flex-col gap-3 justify-center items-center">
+          <h2 className="text-sm text-primary">My ECV Video</h2>
+          <span className="text-xs">Updated on 17/10/2026</span>
+
+          <div className="aspect-video w-[30vw] border-4 border-primary bg-background p-2 shadow-lg">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/zfAVUdmY1AA"
+              title="My ECV Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
       </div>
 
       {/* ================= MOBILE ================= */}
@@ -187,6 +204,23 @@ export default function AboutMe() {
               GitHub
             </Button>
           </Link>
+
+          {/* ECV Video */}
+          <div className="flex flex-col gap-2 justify-center items-center">
+            <h2 className="text-sm text-primary">My ECV Video</h2>
+            <span className="text-xs">Updated on 17/10/2026</span>
+
+            <div className="aspect-video border-4 border-primary bg-background p-2 shadow-lg">
+              <iframe
+                className="h-full w-full"
+                src="https://www.youtube.com/embed/zfAVUdmY1AA"
+                title="My ECV Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          </div>
         </div>
       </div>
     </>
